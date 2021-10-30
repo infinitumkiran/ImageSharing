@@ -41,54 +41,16 @@ function HeroSection() {
 
     // File content to be displayed after
     // file upload is complete
-    const fileData = () => {
+   
+    const addImageUri = async() =>{
 
-        if (selectedFile) {
+      await axios.post("",).then((response)=>{
+            console.log(response);
+          }).catch((error) =>{
+            console.log(error);
+          })
+      }
 
-            return (
-                <div>
-                    <h2>File Details:</h2>
-
-                    <p>File Name: {selectedFile.name}</p>
-
-
-                    <p>File Type: {selectedFile.type}</p>
-
-
-                    <p>
-                        Last Modified:{" "}
-                        {selectedFile.lastModifiedDate.toDateString()}
-                    </p>
-
-                </div>
-            );
-        } else {
-            return (
-                <div>
-                    <br />
-                    <h4>Choose before Pressing the Upload button</h4>
-                </div>
-            );
-        }
-    };
-
-
-
-    function getDataUri(url, callback) {
-        var image = new Image();
-
-        image.onload = function () {
-            var canvas = document.createElement('canvas');
-            canvas.width = this.naturalWidth;
-            canvas.height = this.naturalHeight;
-
-            canvas.getContext('2d').drawImage(this, 0, 0);
-
-            callback(canvas.toDataURL('image/png'));
-        };
-
-        image.src = url;
-    }
 
     return (
 
